@@ -10,6 +10,9 @@ packages = [{include = "django_online_school"}]
 python = "^3.11"
 django = "^4.1.3"
 djangorestframework = "^3.14.0"
+accounts = "^0.2.4"
+django-perms = "^2.1.0"
+signals = "^0.0.2"
 
 
 [build-system]

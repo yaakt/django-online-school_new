@@ -5,9 +5,10 @@ from django.conf.urls.static import static
 from rest_framework import routers
 from online_school.school.views import *
 
+
 router = routers.DefaultRouter()
 router.register(r'student', StudentViewSet)
-router.register(r'teacher', TeacherViewSet)
+# router.register(r'teacher', TeacherViewSet)
 router.register(r'group', GroupViewSet)
 router.register(r'course', CourseViewSet)
 router.register(r'sales', SalesViewSet)
@@ -23,6 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(school_urls)),
     path('api-auth/', include('rest_framework.urls')),
+    path('auth/', include('djoser.urls')),
+    path('all-profiles/', TeacherListCreateView.as_view(), name='all-profiles'),
+    path('log/', TeacherLookView.as_view(), name='log'),
+
 ]
 
 if settings.DEBUG:
